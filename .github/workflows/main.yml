@@ -1,15 +1,17 @@
-on: push
-name: Deploy website on push
+on: repository_dispatch
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: Deploy
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Get latest code
+    - name: 🚚 Get latest code
       uses: actions/checkout@v2
-    - name: Sync files
-      uses: Sankirkland/FTP-Deploy-Action@4.0.0
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: sftp.kangjessy.com
         username: kangjessy
         password: ${{ secrets.ftp_password }}
+        server-dir: public_html/www/mysubdirectory
